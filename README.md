@@ -1,4 +1,5 @@
 # fakesudo
+> for emulating SU privileges, it is recommended to use **FAKEROOT**.
 run sudo commands as regular user.
 
 ## Installing fakesudo
