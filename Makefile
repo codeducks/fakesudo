@@ -17,7 +17,6 @@ endef
 install:
 	$(compile_prod)
 
-	./install.sh
 	cp $(build_dir)/$(fake_bin)   $(final_dir)
 	cp $(build_dir)/$(manage_bin) $(final_dir)
 
