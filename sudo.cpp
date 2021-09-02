@@ -10,9 +10,11 @@ using json = nlohmann::json;
 
 int main(int argc, char **argv) {
 
+    /* NOT YET NEEDED
     ifstream config_file("./config.json");
     json config;
     config_file >> config;
+    */
 
     vector<string> command_vec(argv + 1, argv + argc);
 
