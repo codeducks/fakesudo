@@ -1,6 +1,7 @@
 # fakesudo
-> for emulating SU privileges, it is recommended to use **FAKEROOT**.
-run sudo commands as regular user.
+> for emulating SU privileges, it is recommended to use **FAKEROOT**.  
+  
+run sudo commands as regular user.  
 
 ## Installing fakesudo
 run the following:
@@ -13,4 +14,4 @@ make install
 
 ## Managing fakesudo
 currently fakesudo has one purpose and does not need managing.  
-If there is an update just pull the repo and run `make install` again.
+If there is an update just pull the repo and run `make install` again.  
