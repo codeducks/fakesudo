@@ -10,7 +10,16 @@ run the following:
 # run this as sudo user, to avoid conflicts with permissions
 
 make install
+
+# for a program that uses fakeroot install it like this:
+
+make install_fakeroot
+
 ```
+
+### fakeroot fakesudo
+fakesudo's fakeroot just uses the "fakeroot" binary.  
+To change this you can just change the fakeroot name in the `fakeroot_sudo.cpp` file.  
 
 ## Managing fakesudo
 currently fakesudo has one purpose and does not need managing.  
