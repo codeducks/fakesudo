@@ -47,7 +47,7 @@ makefile things:
 
 ``` makefile
 install: installs the program (run this as super user)
-install_fakeroot: installs the fakeroot variant.
+install_fakeroot: installs the fakeroot variant. (run this as super user)
 uninstall: speaks for itself (run this as super user)
 full_uninstall: uninstalls itself plus all the created folders
 bloat: compiles everything (don't use this)
