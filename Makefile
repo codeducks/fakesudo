@@ -52,6 +52,3 @@ dev:
 dev_fakeroot:
 	$(default_files)
 	$(compile_fakeroot)
-
-compile:
-	$(compile_prod)
