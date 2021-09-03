@@ -9,6 +9,8 @@ manage_bin = fakesudo
 # SYS
 final_dir = /usr/local/bin
 
+
+# DEFINES
 define compile_default
 	$(cc) ./src/sudo.cpp   -o $(build_dir)/$(fake_bin)   $(flags)
 	$(cc) ./src/manage.cpp -o $(build_dir)/$(manage_bin) $(flags)
@@ -30,6 +32,8 @@ define default_install
 	cp $(build_dir)/$(manage_bin) $(final_dir)
 endef
 
+
+# SCRIPTS
 
 install:
 	$(compile_default)
