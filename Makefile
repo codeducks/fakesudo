@@ -10,18 +10,18 @@ manage_bin = fakesudo
 final_dir = /usr/local/bin
 
 define compile_default
-	$(cc) sudo.cpp   -o $(build_dir)/$(fake_bin)   $(flags)
-	$(cc) manage.cpp -o $(build_dir)/$(manage_bin) $(flags)
+	$(cc) ./src/sudo.cpp   -o $(build_dir)/$(fake_bin)   $(flags)
+	$(cc) ./src/manage.cpp -o $(build_dir)/$(manage_bin) $(flags)
 endef
 
 define compile_fakeroot
-	$(cc) fakeroot_sudo.cpp -o $(build_dir)/$(fake_bin)   $(flags)
-	$(cc) manage.cpp        -o $(build_dir)/$(manage_bin) $(flags)
+	$(cc) ./src/fakeroot_sudo.cpp -o $(build_dir)/$(fake_bin)   $(flags)
+	$(cc) ./src/manage.cpp        -o $(build_dir)/$(manage_bin) $(flags)
 endef
 
 
 define default_files
-	cp ./.fakesudo_config ~/.fakesudo_config
+	cp ./src/.fakesudo_config ~/.fakesudo_config
 endef
 
 
