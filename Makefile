@@ -11,7 +11,7 @@ manage_bin_name   = fakesudo
 ifdef DEBUG
 OUT_DIR   := $(OUTPUT_ROOT)debug
 BUILD_DIR := $(BUILD_ROOT)debug
-CFLAGS  := -c -Wall -v
+CFLAGS    := -Wall
 else
 OUT_DIR   := $(OUTPUT_ROOT)release
 BUILD_DIR := $(BUILD_ROOT)release
@@ -26,7 +26,7 @@ CC := g++
 
 # DEFINES
 
-.SILENT: create_folders create_config_files compile_manage compile compile_fakeroot copy_to_output copy_to_install clean deep_clean uninstall
+.SILENT: create_folders create_config_files compile_manage compile compile_fakeroot set_perms copy_to_output copy_to_install clean deep_clean uninstall
 setup: create_folders create_config_files
 
 create_folders:
@@ -50,6 +50,10 @@ compile:
 compile_fakeroot:
 	echo "CC fakeroot_sudo.cpp"
 	$(CC) ./src/fakeroot_sudo.cpp -o $(BUILD_DIR)/$(fakeroot_bin_name) $(CFLAGS)
+
+set_perms:
+	echo "CHMOD $(BUILD_DIR)"
+	chmod -R a+x $(BUILD_DIR)
 
 copy_to_output:
 	echo "CP $(main_bin_name) -> $(OUT_DIR)"
@@ -78,12 +82,12 @@ uninstall:
 	rm $(INSTALL_DIR)/$(manage_bin_name)
 
 
-install: setup compile compile_manage copy_to_install clean
-install_fakeroot: setup compile_fakeroot compile_manage copy_to_install clean
-bloat: setup compile_fakeroot compile compile_manage copy_to_output
-dev: compile
+install: setup compile compile_manage set_perms copy_to_install clean
+install_fakeroot: setup compile_fakeroot compile_manage set_perms copy_to_install clean
+bloat: setup compile_fakeroot compile compile_manage set_perms copy_to_output
+dev: setup compile set_perms
 	@echo "-----------"
-	./build/release/sudo echo "test"
+	$(BUILD_DIR)/sudo echo "test"
 
 full_uninstall: uninstall deep_clean
 	@echo "goodbye!"
