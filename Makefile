@@ -91,3 +91,18 @@ dev: setup compile set_perms
 
 full_uninstall: uninstall deep_clean
 	@echo "goodbye!"
+
+
+# NON PROGRAM STUFF
+ssh:
+	eval $(ssh-agent -s)
+	ssh-add ~/.ssh/faultydev
+
+pushall:
+	git push --mirror
+	git push github --mirror
+
+pull:
+	git pull
+
+init_dev_session: ssh pull
